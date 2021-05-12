@@ -110,9 +110,11 @@ IF (WIN32 AND WINHTTP)
 	LIST(APPEND LIBGIT2_PC_LIBS "-lrpcrt4" "-lcrypt32" "-lole32")
 ENDIF()
 
-include(SelectHTTPSBackend)
+
+Include(SelectSSHBackend)
+Include(SelectHTTPSBackend)
 include(SelectHashes)
-target_sources(git2internal PRIVATE ${SRC_SHA1})
+
 
 # Specify regular expression implementation
 FIND_PACKAGE(PCRE)
